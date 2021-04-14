@@ -24,10 +24,10 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CPF ou CNPJ</label>
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CNPJ</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control @error('cpf_cnpj') is-invalid @enderror" value="{{ old('cpf_cnpj') }}" name="cpf_cnpj" id="inputEmail1" placeholder="CPF ou CNPJ">
-                                    @error('cpf_cnpj')
+                                    <input type="text" class="form-control @error('cnpj') is-invalid @enderror" value="{{ old('cnpj') }}" name="cnpj" id="inputEmail1" placeholder="CNPJ">
+                                    @error('cnpj')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

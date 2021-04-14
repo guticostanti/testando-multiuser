@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'cpf_cnpj' => ['required', 'string', 'max:14'],
+            'cnpj' => ['required', 'string', 'max:14'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -74,7 +74,7 @@ class RegisterController extends Controller
         ]);*/
         $user = new User();
         $user->name = $data['name'];
-        $user->cpf_cnpj = $data['cpf_cnpj'];
+        $user->cnpj = $data['cnpj'];
         $user->email = $data['email'];
         $user->password = Hash::make($data['password']);
         $user->save();
