@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.pf-app')
 @section('content')
  <!-- start:form login -->
     <section class="panel panel-default">

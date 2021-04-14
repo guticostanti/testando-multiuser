@@ -63,11 +63,7 @@ Route::get('/', function () {
 
 
 Route::middleware('auth')->group(function() {
-    Route::get('/profile', 'UserController@getProfile')->name('profile');
-    Route::get('/presend', 'TransactionController@getPreSend')->name('presend');
-    Route::get('/sendpf', 'TransactionController@getSendPf')->name('sendpf');
-    Route::get('/sendpj', 'TransactionController@getSendPj')->name('sendpj');
-    Route::post('/send', 'TransactionController@postSend')->name('send');
+    Route::get('/transaction', 'TransactionController@getTransactions')->name('transaction');
 });
 
 Route::prefix('pf')->group(function () {
@@ -80,6 +76,7 @@ Route::prefix('pf')->group(function () {
 
     // Logout route
     Route::post('/logout', 'Auth\PfLoginController@logout')->name('pf.logout');
+    Route::get('/logout', 'Auth\PfLoginController@logout')->name('pf.logout');
 
     // Register routes
     Route::get('/register', 'Auth\PfRegisterController@showRegistrationForm')->name('pf.register');
@@ -92,5 +89,9 @@ Route::prefix('pf')->group(function () {
     Route::post('/password/reset', 'Auth\PfResetPasswordController@reset')->name('pf.password.update');
 
     // Outras rotas
-    Route::get('/transaction', 'TransactionController@getTransactions')->name('transaction');
+    Route::get('/transaction', 'TransactionController@getPfTransactions')->name('pf.transaction');
+    Route::get('/presend', 'TransactionController@getPreSend')->name('presend');
+    Route::get('/sendpf', 'TransactionController@getSendPf')->name('sendpf');
+    Route::get('/sendpj', 'TransactionController@getSendPj')->name('sendpj');
+    Route::post('/send', 'TransactionController@postSend')->name('send');
 });

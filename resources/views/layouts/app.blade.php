@@ -49,7 +49,7 @@
                             <ul class="dropdown-menu">
                                 <div class="log-arrow-up"></div>
                                 @if(Auth::check())
-                                <li><a href="{{ route('profile')}}"><i class=" fa fa-suitcase"></i>Perfil</a></li>
+                                <li><a href="{{ route('dashboard')}}"><i class=" fa fa-suitcase"></i>Perfil</a></li>
                                 <li><a href="{{ route('logout') }}"><i class="fa fa-key"></i> Logout</a></li>
                                 @else
                                 <li><a href="{{ route('login')}}"><i class=" fa fa-sign-in"></i>Login</a></li>
@@ -86,14 +86,6 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a href="{{ route('presend') }}">
-                                        <div class="text-center">
-                                            <i class="fa fa-3x fa-send"></i><br>
-                                            Fazer Transação
-                                        </div>
-                                    </a>
-                                </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                         <div class="text-center">
@@ -103,17 +95,6 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="{{ route('transaction')}}"><i class="fa fa-list-alt"></i>Histórico de Transações</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <div class="text-center">
-                                            <i class="fa fa-users fa-3x"></i><br>
-                                            Configurações da Conta<span class="caret"></span>
-                                        </div>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i>Perfil</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">

@@ -1,24 +1,26 @@
-@extends('layouts.pf-app')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 <div class="row" id="home-content">
     <div class="col-lg-9">
         <section class="panel">
-            @if ($message = $request->session()->get('success'))
+            <?php if($message = $request->session()->get('success')): ?>
                 <div class="custom-alerts alert alert-success fade in">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    {!! $message !!}
+                    <?php echo $message; ?>
+
                 </div>
                 <?php $request->session()->forget('success');?>
-            @endif
+            <?php endif; ?>
 
-            @if ($message = $request->session()->get('error'))
+            <?php if($message = $request->session()->get('error')): ?>
                 <div class="custom-alerts alert alert-danger fade in">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                    {!! $message !!}
+                    <?php echo $message; ?>
+
                 </div>
                 <?php $request->session()->forget('error');?>
-            @endif
+            <?php endif; ?>
                 <header class="panel-heading">
                     <b>Transações recentes</b> 
                 </header>
@@ -32,14 +34,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {{--@foreach($transactions as $transaction)--}}
+                    <?php $__currentLoopData = $transactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                            <td>{{--$transaction->trans_id--}}</td>
-                            <td>{{--$transaction->created_at--}}</td>
-                            <td>{{--$transaction->type--}}</td>
-                            <td>{{--$transaction->amount--}}</td>
+                            <td><?php echo e($transaction->trans_id); ?></td>
+                            <td><?php echo e($transaction->created_at); ?></td>
+                            <td><?php echo e($transaction->type); ?></td>
+                            <td><?php echo e($transaction->amount); ?></td>
                         </tr>
-                    {{--@endforeach--}}
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
         </section>
@@ -66,7 +68,7 @@
                     <div class="text-center" id="author">
                         <!-- <img src="img/user/avatar-3.jpg"> -->
                         <h3>Saldo</h3>
-                        <h2>{{-- $acc_balance->balance --}} BRL</h2>
+                        <h2><?php echo e($acc_balance->balance); ?> BRL</h2>
                     </div>
                 </div>
             </div>
@@ -74,4 +76,5 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Meus repositórios github\Testando-multiuser\resources\views/home.blade.php ENDPATH**/ ?>

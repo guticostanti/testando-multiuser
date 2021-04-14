@@ -6,20 +6,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	<title>Carteira Digital</title>
-	<link rel="stylesheet" href="{{asset('client/css/font-awesome.min.css')}}" />
-	<link rel="stylesheet" href="{{asset('client/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('client/css/bootstrap-reset.css')}}">
+	<link rel="stylesheet" href="<?php echo e(asset('client/css/font-awesome.min.css')); ?>" />
+	<link rel="stylesheet" href="<?php echo e(asset('client/css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('client/css/bootstrap-reset.css')); ?>">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="{{asset ('client/css/style.css')}}">
+	<link rel="stylesheet" href="<?php echo e(asset ('client/css/style.css')); ?>">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     
     <!-- css for this page -->
     <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <link href="{{asset('client/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('client/css/owl.theme.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('client/css/owl.transitions.css')}}">
+    <link href="<?php echo e(asset('client/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css')); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo e(asset('css/owl.carousel.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('client/css/owl.theme.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('client/css/owl.transitions.css')); ?>">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -35,7 +35,7 @@
                 <div class="container">
                     <!-- start:navbar-header -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{ route('pf.dashboard') }}"><i class="fa fa-cash"></i><strong>Carteira Digital</strong></a>
+                        <a class="navbar-brand" href="<?php echo e(route('pf.dashboard')); ?>"><i class="fa fa-cash"></i><strong>Carteira Digital</strong></a>
                     </div>
                     <!-- end:navbar-header -->
                     <ul class="nav navbar-nav navbar-right top-menu">
@@ -48,13 +48,13 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <div class="log-arrow-up"></div>
-                                @if(Auth::guard('pf')->check())
-                                <li><a href="{{ route('pf.dashboard')}}"><i class=" fa fa-suitcase"></i>Perfil</a></li>
-                                <li><a href="{{ route('pf.logout') }}"><i class="fa fa-key"></i> Logout</a></li>
-                                @else
-                                <li><a href="{{ route('pf.login')}}"><i class=" fa fa-sign-in"></i>Login</a></li>
-                                <li><a href="{{ route('pf.register')}}"><i class=" fa fa-sign-up"></i>Cadastrar</a></li>
-                                @endif
+                                <?php if(Auth::guard('pf')->check()): ?>
+                                <li><a href="<?php echo e(route('pf.dashboard')); ?>"><i class=" fa fa-suitcase"></i>Perfil</a></li>
+                                <li><a href="<?php echo e(route('pf.logout')); ?>"><i class="fa fa-key"></i> Logout</a></li>
+                                <?php else: ?>
+                                <li><a href="<?php echo e(route('pf.login')); ?>"><i class=" fa fa-sign-in"></i>Login</a></li>
+                                <li><a href="<?php echo e(route('pf.register')); ?>"><i class=" fa fa-sign-up"></i>Cadastrar</a></li>
+                                <?php endif; ?>
                             </ul>
                         </li>
                     </ul>
@@ -75,11 +75,11 @@
                         </div>
                     
                         <!-- Collect the nav links, forms, and other content for toggling -->
-                        @if(Auth::guard('pf')->check())
+                        <?php if(Auth::guard('pf')->check()): ?>
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
                             <ul class="nav navbar-nav">
                                 <li class="">
-                                    <a href="{{ route('pf.dashboard') }}">
+                                    <a href="<?php echo e(route('pf.dashboard')); ?>">
                                         <div class="text-center">
                                             <i class="fa fa-dashboard fa-3x"></i><br>
                                             Dashboard
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="{{ route('presend') }}">
+                                    <a href="<?php echo e(route('presend')); ?>">
                                         <div class="text-center">
                                             <i class="fa fa-3x fa-send"></i><br>
                                             Fazer Transação
@@ -102,7 +102,7 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ route('pf.transaction')}}"><i class="fa fa-list-alt"></i>Histórico de Transações</a></li>
+                                        <li><a href="<?php echo e(route('pf.transaction')); ?>"><i class="fa fa-list-alt"></i>Histórico de Transações</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown">
@@ -113,12 +113,12 @@
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ route('pf.logout') }}"><i class="fa fa-unlock-alt"></i> LogOut</a></li>
+                                        <li><a href="<?php echo e(route('pf.logout')); ?>"><i class="fa fa-unlock-alt"></i> LogOut</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <!-- /.navbar-collapse -->
                     </div>
                 </nav>
@@ -135,7 +135,7 @@
                     <li class="active">Dashboard</li>
                 </ol> -->
                 <!-- end:breadcrumb -->   
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
 
             </div>
         </div>
@@ -161,26 +161,26 @@
 
 	<!-- start:javascript -->
 	<!-- javascript default for all pages-->
-	<script src="{{ asset('client/js/jquery-1.11.1.min.js') }}"></script>
-	<script src="{{asset('client/js/bootstrap.min.js')}}"></script>
+	<script src="<?php echo e(asset('client/js/jquery-1.11.1.min.js')); ?>"></script>
+	<script src="<?php echo e(asset('client/js/bootstrap.min.js')); ?>"></script>
 
 
     <!-- javascript for Srikandi admin -->
-    <script src="{{ asset('client/js/themes.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.scrollTo.min.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.nicescroll.js') }}"></script>
-    <script src="{{ asset('client/js/jquery.sparkline.js') }}" type="text/javascript"></script>
-    <script class="include" type="text/javascript" src="{{ asset('client/js/jquery.dcjqaccordion.2.7.min.js') }}"></script>
-    <script src="{{ asset('client/js/respond.min.js') }}" ></script>
+    <script src="<?php echo e(asset('client/js/themes.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/jquery.scrollTo.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/jquery.nicescroll.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/jquery.sparkline.js')); ?>" type="text/javascript"></script>
+    <script class="include" type="text/javascript" src="<?php echo e(asset('client/js/jquery.dcjqaccordion.2.7.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/respond.min.js')); ?>" ></script>
 	<!-- end:javascript -->
 
     <!-- start:javascript for this page -->
-    <script src="{{ asset('client/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js')}}"></script>
-    <script src="{{ asset('client/js/owl.carousel.js')}}" ></script>
-    <script src="{{ asset('client/js/jquery.customSelect.min.js')}}" ></script>
-    <script src="{{ asset('clientjs/sparkline-chart.js')}}"></script>
-    <script src="{{ asset('client/js/easy-pie-chart.js')}}"></script>
-    <script src="{{ asset('client/js/count.js')}}"></script>
+    <script src="<?php echo e(asset('client/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/owl.carousel.js')); ?>" ></script>
+    <script src="<?php echo e(asset('client/js/jquery.customSelect.min.js')); ?>" ></script>
+    <script src="<?php echo e(asset('clientjs/sparkline-chart.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/easy-pie-chart.js')); ?>"></script>
+    <script src="<?php echo e(asset('client/js/count.js')); ?>"></script>
     
     
     <script>
@@ -212,8 +212,8 @@
     }
     </script>
     <!-- end:javascript for this page -->
-    @yield('scripts')
+    <?php echo $__env->yieldContent('scripts'); ?>
 
 </body>
 
-</html>	
+</html>	<?php /**PATH D:\Meus repositórios github\Testando-multiuser\resources\views/layouts/pf-app.blade.php ENDPATH**/ ?>

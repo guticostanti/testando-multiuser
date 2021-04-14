@@ -19,6 +19,13 @@ class TransactionController extends Controller
         return view('clients.transaction', compact('user', 'transactions'));
     }
 
+    public function getPfTransactions()
+    {
+        /*$user = Auth::user();
+        $transactions = Transaction::where('user_id',$user->id)->paginate(2);*/
+        return view('clients.pf-transaction'); //, compact('user', 'transactions')
+    }
+
     public function getSendPf(Request $request)
     {
         return view('clients.sendpf', compact('request'));

@@ -1,22 +1,24 @@
-@extends('layouts.pf-app')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
  <!-- start:form login -->
     <section class="panel panel-default">
-        @if ($message = $request->session()->get('success'))
+        <?php if($message = $request->session()->get('success')): ?>
             <div class="custom-alerts alert alert-success fade in">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                {!! $message !!}
+                <?php echo $message; ?>
+
             </div>
             <?php $request->session()->forget('success');?>
-        @endif
+        <?php endif; ?>
 
-        @if ($message = $request->session()->get('error'))
+        <?php if($message = $request->session()->get('error')): ?>
             <div class="custom-alerts alert alert-danger fade in">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                {!! $message !!}
+                <?php echo $message; ?>
+
             </div>
             <?php $request->session()->forget('error');?>
-        @endif
+        <?php endif; ?>
 
         <header class="panel-heading text-center">
             <h3><b>Fazer Transação</b></h3>
@@ -25,10 +27,11 @@
         <div class="panel-body ">
         <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <form role="form" id="payment-form" action="{{ route('send')}}" method="post">
-                @csrf
-                <div id="payment-error" class="alert alert-danger {{ !$request->session()->exists('error') ? 'hidden':''}}">
-                    {{ $request->session()->get('error') }}
+            <form role="form" id="payment-form" action="<?php echo e(route('send')); ?>" method="post">
+                <?php echo csrf_field(); ?>
+                <div id="payment-error" class="alert alert-danger <?php echo e(!$request->session()->exists('error') ? 'hidden':''); ?>">
+                    <?php echo e($request->session()->get('error')); ?>
+
                 </div>
                 <div class="row">
                 <div class="col-md-6">
@@ -57,4 +60,6 @@
         </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.pf-app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Meus repositórios github\Testando-multiuser\resources\views/clients/sendpj.blade.php ENDPATH**/ ?>
