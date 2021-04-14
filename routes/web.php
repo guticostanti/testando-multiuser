@@ -56,9 +56,7 @@ Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
 
 Route::get('/home', 'HomeController@index')->name('dashboard');
 
-Route::get('/', function () {
-    return view('auth.login');
-})->middleware('guest')->name('home');
+Route::get('/', 'WelcomeController@index')->middleware('guest')->name('welcome');
 
 
 
