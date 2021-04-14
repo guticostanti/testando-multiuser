@@ -16,7 +16,7 @@ class CreatePfsTable extends Migration
         Schema::create('pfs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('cpf_cnpj')->unique();
+            $table->string('cpf')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -32,6 +32,6 @@ class CreatePfsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pf');
+        Schema::dropIfExists('pfs');
     }
 }

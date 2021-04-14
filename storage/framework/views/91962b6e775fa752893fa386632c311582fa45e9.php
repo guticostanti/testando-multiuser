@@ -40,15 +40,15 @@ unset($__errorArgs, $__bag); ?>
                         <div class="form-group">
                             <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CPF</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control <?php $__errorArgs = ['cpf_cnpj'];
+                                    <input type="text" class="form-control <?php $__errorArgs = ['cpf'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('cpf_cnpj')); ?>" name="cpf_cnpj" id="inputEmail1" placeholder="CPF">
-                                    <?php $__errorArgs = ['cpf_cnpj'];
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('cpf')); ?>" name="cpf" id="inputEmail1" placeholder="CPF">
+                                    <?php $__errorArgs = ['cpf'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

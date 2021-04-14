@@ -19,7 +19,7 @@ class Pf extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'cpf_cnpj', 'email', 'password',
+        'name', 'cpf', 'email', 'password',
     ];
 
     /**

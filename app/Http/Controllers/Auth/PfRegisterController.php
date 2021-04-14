@@ -29,7 +29,7 @@ class PfRegisterController extends Controller
         $this->validate($request,
             [
                 'name' => ['required', 'string', 'max:255'],
-                'cpf_cnpj' => ['required', 'string', 'max:14'],
+                'cpf' => ['required', 'string', 'max:14'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:pfs'],
                 'password' => ['required', 'string', 'min:8']
             ]
@@ -37,15 +37,15 @@ class PfRegisterController extends Controller
 
         // Create pf user
         try {
-            $admin = Pf::create([
+            $pf = Pf::create([
                 'name' => $request->name,
-                'cpf_cnpj' => $request->cpf_cnpj,
+                'cpf' => $request->cpf,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
 
             // Log the pf in
-            Auth::guard('pf')->loginUsingId($admin->id);
+            Auth::guard('pf')->loginUsingId($pf->id);
             return redirect()->route('pf.dashboard');
         } catch (\Exception $e) {
             return redirect()->back()->withInput($request->only('name', 'email'));

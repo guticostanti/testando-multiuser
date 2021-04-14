@@ -26,8 +26,8 @@
                         <div class="form-group">
                             <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CPF</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control @error('cpf_cnpj') is-invalid @enderror" value="{{ old('cpf_cnpj') }}" name="cpf_cnpj" id="inputEmail1" placeholder="CPF">
-                                    @error('cpf_cnpj')
+                                    <input type="text" class="form-control @error('cpf') is-invalid @enderror" value="{{ old('cpf') }}" name="cpf" id="inputEmail1" placeholder="CPF">
+                                    @error('cpf')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
