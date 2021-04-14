@@ -1,16 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.pf-app')
 @section('content')
  <!-- start:form login -->
 
 
     <section class="panel panel-default">
         <header class="panel-heading text-center panel-relative">
-            <h3><b>Criar Conta</b></h3>
+            <h3><b>Criar Conta Pessoa Física</b></h3>
         </header>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('pf.register') }}">
                         @csrf
                         <div class="form-group">
                             <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nome Completo</label>
@@ -24,9 +24,9 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CPF ou CNPJ</label>
+                            <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">CPF</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control @error('cpf_cnpj') is-invalid @enderror" value="{{ old('cpf_cnpj') }}" name="cpf_cnpj" id="inputEmail1" placeholder="CPF ou CNPJ">
+                                    <input type="text" class="form-control @error('cpf_cnpj') is-invalid @enderror" value="{{ old('cpf_cnpj') }}" name="cpf_cnpj" id="inputEmail1" placeholder="CPF">
                                     @error('cpf_cnpj')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

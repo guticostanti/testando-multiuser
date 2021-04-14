@@ -31,7 +31,7 @@ class PfLoginController extends Controller
         // Attempt to login as admin
         if (Auth::guard('pf')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             // If successful then redirect to intended route or admin dashboard
-            return redirect()->intended(route('pf.dashboard'));
+            return redirect()->route('pf.dashboard');
         }
 
         // If unsuccessful then redirect back to login page with email and remember fields
